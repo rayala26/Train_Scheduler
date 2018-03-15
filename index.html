@@ -19,10 +19,9 @@
 			<div class="panel panel-default">
 				<div class="panel-heading col-md-12">
 					<h4 class="col-md-6" id="icon">Current Train Schedule</h4>
-					<h4 class="col-md-6" id="clock"><span id="currentTime"></span></h4>
 				</div>
 				<div class="panel-body">
-					<table class="table table-striped">
+					<table class="table table-striped" id="schedule">
 						<thead>
 							<tr>
 								<th>Train Name</th>
@@ -32,7 +31,16 @@
 								<th>Minutes Away</th>
 							</tr>
 						</thead>
-					
+						
+						<body id="schedule">
+							<tr>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>	
+						</body>	
 					</table>
 				</div>
 			</div>
@@ -57,7 +65,7 @@
 							<label for="Start Time">First Train Arrival: <span id=timeFormat>(Time Format HH:MM)</span></label>
 							<input type="text" class="form-control" id="startTime-input">
 
-							<label for="Frequency">Frequency:</label>
+							<label for="Frequency">Frequency: (min)</label>
 							<input type="number" class="form-control" id="frequency-input">
 
 							<button class="btn btn-primary" id="newTrain-btn" type="submit">Submit</button>

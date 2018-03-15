@@ -20,7 +20,7 @@ $('#newTrain-btn').on('click', function(event) {
 	// Grabs user input
 	var trainName = $('#trainName-input').val().trim();
 	var destination = $('#destination-input').val().trim();
-	var startTime = ('#startTime-input').val().trim();
+	var startTime = $('#startTime-input').val().trim();
 	var frequency = $('#frequency-input').val();
 
 	var newTrain = {
@@ -30,8 +30,8 @@ $('#newTrain-btn').on('click', function(event) {
 		frequency: frequency
 	};
 
-	// Uploads train data to the train data
-	trainData.ref().push(newTrain);
+	// Uploads add new train data to the current train data
+	database.ref().push(newTrain);
 
 	// Logs everything to console
 	console.log(newTrain.name);
@@ -60,8 +60,9 @@ $('#newTrain-btn').on('click', function(event) {
 			var minutes = frequency - remainder;
 			var arrival = moment().add(minutes,'m').format('hh:mm A')
 
-			$('#schedule').append(`<tr><td>${trainName}</td><td>${destination}</td><td>${frequency}</td><td>${arrival}</td><td>${minutes}</td>`)
+			$('#schedule > tbody').append('<th>' + trainName + '</th><th>' + destination + '</th><th>' + frequency + '</th><th>' + arrival + '</th><th>' + minutes + '</th>');
 			
+
 		});
 
  
