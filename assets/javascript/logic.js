@@ -60,16 +60,16 @@ $('#newTrain-btn').on('click', function(event) {
   })
 
 	database.ref().on('child_added', function(snapshot) {
-		var train = snapshot.val().trainName-input;
-		var dest = snapshot.val().destination-input;
-		var fTrain = snapshot.val().startTime-input;
-		var freq = parseInt(snapshot.val().frequency-input);
+		var train = snapshot.val().name;
+		var dest = snapshot.val().destination;
+		var fTrain = snapshot.val().startTime;
+		var frequency = parseInt(snapshot.val().frequency);
 		var m = Math.ceil(parseInt(moment().diff(moment.unix(fTrain, "X"), "minutes"))%frequency);
-		var nextA = moment.unix(fTrain, "X").add(m*freq, 'minutes');
+		var nextA = moment.unix(fTrain, "X").add(m*frequency, 'minutes');
 		var nextAr = moment(nextA).format('LT');
-		var minAway = moment(arrival).diff(moment(), 'minutes')+1;
+		var minAway = moment(nextAr).diff(moment(), 'minutes')+1;
 
-		$('#trainSchedule > tbody').append('<tr> + <th>' + trainName + '</th><th>' + destination + '</th><th>' + frequency + '</th><th>' + arrival + '</th><th>' + minutes + '</th> + </tr>');
+		$('#trainSchedule').append('<tr> + <th>' + train + '</th><th>' + dest + '</th><th>' + frequency + '</th><th>' + nextAr + '</th><th>' + m + '</th> + </tr>');
 		
 
 	});
