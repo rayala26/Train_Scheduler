@@ -60,7 +60,7 @@ $('#newTrain-btn').on('click', function(event) {
 			var minutes = frequency - remainder;
 			var arrival = moment().add(minutes,'m').format('hh:mm A')
 
-			$('#schedule > tbody').append('<th>' + trainName + '</th><th>' + destination + '</th><th>' + frequency + '</th><th>' + arrival + '</th><th>' + minutes + '</th>');
+			$('#trainSchedule > tbody').append('<tr> + <th>' + trainName + '</th><th>' + destination + '</th><th>' + frequency + '</th><th>' + arrival + '</th><th>' + minutes + '</th> + </tr>');
 			
 
 		});
