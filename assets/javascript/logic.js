@@ -30,15 +30,6 @@ $('#newTrain-btn').on('click', function(event) {
 		frequency: frequency
 	}
 
-	/*
-	var newTrain = {
-			name: trainName,
-			destination: destination,
-			startTime: startTime,
-			frequency: frequency
-	*/
-
-
 	// Logs everything to console
 	console.log(newTrain.name);
 	console.log(newTrain.destination);
@@ -73,25 +64,3 @@ $('#newTrain-btn').on('click', function(event) {
 		
 
 	});
-
- 
-/*
-database.ref().on("child_added", function(snapshot){
-var train = snapshot.val().trainName;
-var dest = snapshot.val().destination;
-var fTrain = snapshot.val().firstTrain;
-var freq = parseInt(snapshot.val().frequency);
-var m = Math.ceil(parseInt(moment().diff(moment.unix(fTrain, "X"), 'minutes'))/freq);
-var nextA = moment.unix(fTrain, "X").add(m*freq, "minutes");
-var nextAr= moment(nextA).format("LT");
-var minAway = moment(nextA).diff(moment(), "minutes")+1;
-*/
-
-
-		
-
-
-
-
-		
-
